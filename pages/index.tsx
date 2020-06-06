@@ -27,214 +27,92 @@ const useURLState = (name: string) => {
 }
 
 export default function Home() {
-    const [email, setEmail] = useURLState("email")
+    const [to, setTo] = useURLState("to")
     const [subject, setSubject] = useURLState("subject")
+    const [body, setBody] = useURLState("body")
+
+    const mailLink = `mailto:${to}?subject=${subject}&body=${body}`
 
     return (
         <div className="container">
             <Head>
-                <title>Create Next App</title>
+                <title>email this email</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <input
-                type="text"
-                placeholder="Email Subject"
-                value={subject}
-                onChange={(e) => setSubject(e.target.value)}
-                className="card"
-            />
-
-            <textarea
-                placeholder="Email Body"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="card"
-            />
-
             <main>
-                <h1 className="title">
-                    Welcome to <a href="https://nextjs.org">Next.js!</a>
-                </h1>
+                <h4>To:</h4>
+                <input
+                    type="text"
+                    placeholder="Email Subject"
+                    value={to}
+                    onChange={(e) => setTo(e.target.value)}
+                    className="card"
+                />
 
-                <p className="description">
-                    Get started by editing <code>pages/index.js</code>
-                </p>
+                <h4>Subject:</h4>
+                <input
+                    type="text"
+                    placeholder="Email Subject"
+                    value={subject}
+                    onChange={(e) => setSubject(e.target.value)}
+                    className="card"
+                />
 
-                <div className="grid">
-                    <a href="https://nextjs.org/docs" className="card">
-                        <h3>Documentation &rarr;</h3>
-                        <p>
-                            Find in-depth information about Next.js features and
-                            API.
-                        </p>
-                    </a>
+                <h4>Body:</h4>
+                <textarea
+                    placeholder="Email Body"
+                    value={body}
+                    onChange={(e) => setBody(e.target.value)}
+                    className="card"
+                />
 
-                    <a href="https://nextjs.org/learn" className="card">
-                        <h3>Learn &rarr;</h3>
-                        <p>
-                            Learn about Next.js in an interactive course with
-                            quizzes!
-                        </p>
-                    </a>
-
-                    <a
-                        href="https://github.com/vercel/next.js/tree/master/examples"
-                        className="card"
-                    >
-                        <h3>Examples &rarr;</h3>
-                        <p>
-                            Discover and deploy boilerplate example Next.js
-                            projects.
-                        </p>
-                    </a>
-
-                    <a
-                        href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-                        className="card"
-                    >
-                        <h3>Deploy &rarr;</h3>
-                        <p>
-                            Instantly deploy your Next.js site to a public URL
-                            with Vercel.
-                        </p>
-                    </a>
-                </div>
+                <a className="button" href={mailLink}>
+                    Compose Email
+                </a>
+                <input type="text" disabled value={mailLink} />
             </main>
 
-            <footer>
-                <a
-                    href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Powered by{" "}
-                    <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-                </a>
-            </footer>
+            <footer></footer>
 
             <style jsx>{`
-                .container {
-                    min-height: 100vh;
-                    padding: 0 0.5rem;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                }
-
                 main {
-                    padding: 5rem 0;
-                    flex: 1;
                     display: flex;
                     flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
+                    max-width: 400px;
+                    padding: 16px;
                 }
 
-                footer {
-                    width: 100%;
-                    height: 100px;
-                    border-top: 1px solid #eaeaea;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
-
-                footer img {
-                    margin-left: 0.5rem;
-                }
-
-                footer a {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
-
-                a {
-                    color: inherit;
-                    text-decoration: none;
-                }
-
-                .title a {
-                    color: #0070f3;
-                    text-decoration: none;
-                }
-
-                .title a:hover,
-                .title a:focus,
-                .title a:active {
-                    text-decoration: underline;
-                }
-
-                .title {
-                    margin: 0;
-                    line-height: 1.15;
-                    font-size: 4rem;
-                }
-
-                .title,
-                .description {
-                    text-align: center;
-                }
-
-                .description {
-                    line-height: 1.5;
-                    font-size: 1.5rem;
-                }
-
-                code {
-                    background: #fafafa;
+                input,
+                textarea {
+                    border: 1px solid #aaa;
                     border-radius: 5px;
-                    padding: 0.75rem;
-                    font-size: 1.1rem;
-                    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-                        DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
-                        monospace;
+                    font-size: 14px;
+                    padding: 0.5rem;
+                    margin-bottom: 16px;
+                    font-family: -apple-system, BlinkMacSystemFont, Segoe UI,
+                        Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+                        Helvetica Neue, sans-serif;
                 }
 
-                .grid {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    flex-wrap: wrap;
-
-                    max-width: 800px;
-                    margin-top: 3rem;
+                textarea {
+                    height: 200px;
                 }
 
-                .card {
-                    margin: 1rem;
-                    flex-basis: 45%;
-                    padding: 1.5rem;
-                    text-align: left;
-                    color: inherit;
+                h4 {
+                    font-size: 14px;
+                    margin: 4px 0;
+                }
+
+                .button {
+                    background-color: #eee;
+                    margin: 8px 0;
                     text-decoration: none;
-                    border: 1px solid #eaeaea;
-                    border-radius: 10px;
-                    transition: color 0.15s ease, border-color 0.15s ease;
-                }
-
-                .card:hover,
-                .card:focus,
-                .card:active {
-                    color: #0070f3;
-                    border-color: #0070f3;
-                }
-
-                .card h3 {
-                    margin: 0 0 1rem 0;
-                    font-size: 1.5rem;
-                }
-
-                .card p {
-                    margin: 0;
-                    font-size: 1.25rem;
-                    line-height: 1.5;
-                }
-
-                .logo {
-                    height: 1em;
+                    color: #333;
+                    text-align: center;
+                    font-weight: 600;
+                    padding: 8px;
+                    border-radius: 5px;
                 }
 
                 @media (max-width: 600px) {
@@ -246,17 +124,37 @@ export default function Home() {
             `}</style>
 
             <style jsx global>{`
+                *,
+                *:before,
+                *:after {
+                    -webkit-overflow-scrolling: touch;
+                    box-sizing: border-box;
+                }
+
                 html,
                 body {
-                    padding: 0;
                     margin: 0;
+                    height: 100%;
+                    overflow-x: hidden;
+                    line-height: 1.6;
+                    font-weight: 400;
                     font-family: -apple-system, BlinkMacSystemFont, Segoe UI,
                         Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
                         Helvetica Neue, sans-serif;
-                }
+                    color: #222;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                    text-size-adjust: 100%;
+                    -ms-text-size-adjust: 100%;
+                    -webkit-text-size-adjust: 100%;
+                    text-rendering: optimizeLegibility;
 
-                * {
-                    box-sizing: border-box;
+                    -moz-font-feature-settings: "kern" 1;
+                    -ms-font-feature-settings: "kern" 1;
+                    -o-font-feature-settings: "kern" 1;
+                    -webkit-font-feature-settings: "kern" 1;
+                    font-feature-settings: "kern" 1;
+                    font-kerning: normal;
                 }
             `}</style>
         </div>
