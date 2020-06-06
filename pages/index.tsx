@@ -13,7 +13,7 @@ function setParams(name, value, location) {
 }
 
 // hook for storing state in URL so links can be shared
-const useURLState = (name: string) => {
+const useURLState = (name: string): [string, (item: string) => void] => {
     const [param, setParamValue] = useState("")
     const setParam = (newValue) => {
         setParamValue(newValue)
