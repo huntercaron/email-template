@@ -27,7 +27,7 @@ export default function Send() {
 
     return (
         <main>
-            <p>Your email client should open</p>
+            <p>Your email client should now open</p>
             <p>
                 You can <a href={mailLink}>click here</a> to try again.
                 <br /> (This may not work directly in the twitter browser)

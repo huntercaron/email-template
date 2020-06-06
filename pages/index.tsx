@@ -3,6 +3,12 @@ import { useState, useEffect } from "react"
 import { useURLState, createMailToLink, createURLParamString } from "../utils"
 import { GlobalStyle } from "../utils/globalStyle"
 
+/*
+    TODO
+    add URL shortening
+    add 'clear email' button
+*/
+
 export default function Home() {
     // data fields bound to URL
     const [to, setTo] = useURLState("to")
@@ -28,27 +34,24 @@ export default function Home() {
                 <h4>To:</h4>
                 <input
                     type="text"
-                    placeholder="Email Subject"
+                    placeholder="Email Address"
                     value={to}
                     onChange={(e) => setTo(e.target.value)}
-                    className="card"
                 />
 
                 <h4>Subject:</h4>
                 <input
                     type="text"
-                    placeholder="Email Subject"
+                    placeholder="Subject"
                     value={subject}
                     onChange={(e) => setSubject(e.target.value)}
-                    className="card"
                 />
 
                 <h4>Body:</h4>
                 <textarea
-                    placeholder="Email Body"
+                    placeholder="Write your email here…"
                     value={body}
                     onChange={(e) => setBody(e.target.value)}
-                    className="card"
                 />
 
                 <a className="button" href={mailLink}>
@@ -63,7 +66,11 @@ export default function Home() {
 
             <footer>
                 currently only supports plain text •{" "}
-                <a href="https://github.com/huntercaron/email-template">
+                <a
+                    href="https://github.com/huntercaron/email-template"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
                     github repo
                 </a>
             </footer>
