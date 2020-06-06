@@ -1,58 +1,20 @@
-import { useState, useEffect } from "react"
 import Head from "next/head"
-
-function encode(text: string): string {
-    return encodeURIComponent(text)
-}
-
-function getParam(name, location) {
-    const searchParams = new URLSearchParams(location.search)
-    return decodeURIComponent(searchParams.get(name) || "")
-}
-
-function setParams(name, value, location) {
-    const searchParams = new URLSearchParams(location.search)
-    searchParams.set(name, encodeURIComponent(value))
-    window.history.replaceState(null, null, "?" + searchParams.toString())
-}
-
-export async function getTinyUrl(url) {
-    // fetch no longer needs to be imported from isomorphic-unfetch
-
-    const res = await fetch(`https://tinyurl.com/api-create.php?url=${url}`)
-    const data = await res.json()
-
-    console.log(data)
-}
-
-// hook for storing state in URL so links can be shared
-const useURLState = (name: string): [string, (item: string) => void] => {
-    const [param, setParamValue] = useState("")
-    const setParam = (newValue) => {
-        setParamValue(newValue)
-        setParams(name, newValue, window.location)
-    }
-    useEffect(() => {
-        const currentParamValue = getParam(name, window.location)
-        setParamValue(currentParamValue)
-    }, [])
-    return [param, setParam]
-}
+import { useURLState, createMailToLink, createURLParamString } from "../utils"
+import { useState, useEffect } from "react"
 
 export default function Home() {
     // data fields bound to URL
     const [to, setTo] = useURLState("to")
     const [subject, setSubject] = useURLState("subject")
     const [body, setBody] = useURLState("body")
+    const [baseURL, setBaseURL] = useState("")
 
-    //tinyurl.com/api-create.php?url=http://www.example.com/
+    useEffect(() => {
+        setBaseURL(window.location.origin)
+    }, [])
 
-    // url encoded data
-    const enTo = encode(to)
-    const enSubject = encode(subject)
-    const enBody = encode(body)
-
-    const mailLink = `mailto:${enTo}?subject=${enSubject}&body=${enBody}`
+    const mailLink = createMailToLink(to, subject, body)
+    const sendUrl = baseURL + "/send" + createURLParamString(to, subject, body)
 
     return (
         <div className="container">
@@ -91,27 +53,29 @@ export default function Home() {
                 <a className="button" href={mailLink}>
                     Compose Email
                 </a>
-                <input type="text" disabled value={mailLink} />
+                <input type="text" readOnly value={sendUrl} />
 
-                <button className="button" onClick={() => getTinyUrl(mailLink)}>
+                {/* <button className="button" onClick={() => getTinyUrl(mailLink)}>
                     Create Tiny Url
-                </button>
+                </button> */}
             </main>
 
             <footer>
-                currently only supports plaintext • open source &amp; help
-                appreciated{" "}
+                currently only supports plain text •{" "}
                 <a href="https://github.com/huntercaron/email-template">
                     github repo
                 </a>
             </footer>
 
             <style jsx>{`
+                .container {
+                    padding: 16px;
+                }
+
                 main {
                     display: flex;
                     flex-direction: column;
                     max-width: 400px;
-                    padding: 16px;
                 }
 
                 input,
@@ -144,6 +108,11 @@ export default function Home() {
                     font-weight: 600;
                     padding: 8px;
                     border-radius: 5px;
+                    border: 1px solid black;
+                }
+
+                footer {
+                    font-size: 12px;
                 }
 
                 @media (max-width: 600px) {
