@@ -1,8 +1,10 @@
-## 📬 Email Template
+## 📬 **Email Template**
 
-A quick tool for creating 'mailto' template links to share on social to quickly draft emails.
+Currently live at https://email-template.now.sh/
 
-Created with the intention of helping people email their political representatives & share one-click links for doing so.
+A quick tool for creating `mailto` template links to share on social to quickly draft emails.
+
+Created with the intention of helping people email their political representatives & sharing one-click links for helping others to do so.
 
 All info is stored in the URL and is all client side.
 
