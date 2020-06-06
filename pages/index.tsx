@@ -73,8 +73,6 @@ export default function Home() {
                 <input type="text" disabled value={mailLink} />
             </main>
 
-            <footer></footer>
-
             <style jsx>{`
                 main {
                     display: flex;
