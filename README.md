@@ -1,6 +1,4 @@
-## Email Template
-
----
+## 📬 Email Template
 
 A quick tool for creating 'mailto' template links to share on social to quickly draft emails.
 
