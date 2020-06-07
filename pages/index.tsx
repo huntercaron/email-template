@@ -37,7 +37,7 @@ function LinkCreator(props) {
                     <input type="text" readOnly value={shortLink} />
                 </div>
             ) : (
-                <div onClick={createLink}>
+                <div className="button" onClick={createLink}>
                     {loading ? <h3>Creating Link…</h3> : children}
                 </div>
             )}
@@ -49,9 +49,19 @@ function LinkCreator(props) {
                     height: calc(var(--space) * 2.5);
                     border-color: ${secondary ? "var(--gray)" : "#000000"};
                     display: flex;
+                }
+
+                .button {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
                     justify-content: center;
                     align-items: center;
                     cursor: pointer;
+                }
+
+                .button:hover {
+                    background-color: rgba(0, 0, 0, 0.033);
                 }
 
                 .link {
