@@ -106,12 +106,6 @@ textarea {
     margin-bottom: 0px;
 }
 
-.envelope {
-    font-size: 20px;
-    vertical-align: bottom;
-    line-height: 0.8;
-}
-
 .link-container {
     margin-top: var(--space);
     margin-bottom: 4px;
@@ -152,6 +146,7 @@ textarea {
 }
 
 .link {
+    display: flex;
     flex: 1;
     height: 100%;
 }
@@ -162,6 +157,12 @@ textarea {
     margin: 0;
     flex: 1;
     border: 0;
+}
+
+.link .button {
+    flex: none;
+    border-left: 1px solid black;
+    width: 80px;
 }
 
 @media (min-width: 350px) {

@@ -13,6 +13,8 @@ function LinkCreator(props) {
     const [shortLink, setShortLink] = useState()
     const [loading, setLoading] = useState(false)
     const [iOS, setIOS] = useState(false)
+    const [copiedLink, setCopiedLink] = useState(false)
+    const copyTimeout = useRef<number>()
 
     useEffect(() => {
         setIOS(
@@ -45,6 +47,18 @@ function LinkCreator(props) {
         })
     }
 
+    function copyLink() {
+        setCopiedLink(true)
+        inputEl.current.focus()
+        inputEl.current.select()
+        document.execCommand("copy")
+
+        copyTimeout.current = window.setTimeout(
+            () => setCopiedLink(false),
+            2000
+        )
+    }
+
     return (
         <div className="link-container box">
             {shortLink && areLinksValid ? (
@@ -55,6 +69,9 @@ function LinkCreator(props) {
                         readOnly={!iOS}
                         value={shortLink}
                     />
+                    <div className="button" onClick={copyLink}>
+                        <h3>{copiedLink ? "Copied" : "Copy"}</h3>
+                    </div>
                 </div>
             ) : (
                 <div className="button" onClick={createLink}>
@@ -137,12 +154,8 @@ export default function Home() {
                     setAreLinksValid={setAreLinksValid}
                 >
                     <h3>
-                        <span
-                            className="envelope"
-                            role="img"
-                            aria-label="email"
-                        >
-                            &#9993;
+                        <span role="img" aria-label="email">
+                            ✉️
                         </span>
                         &nbsp; Create Email Compose Link
                     </h3>
