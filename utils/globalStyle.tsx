@@ -19,7 +19,7 @@ export function GlobalStyle() {
                     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
                     Helvetica Neue, sans-serif;
                 color: #222;
-                -webkit-font-smoothing: antialiased;
+                // -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
                 text-size-adjust: 100%;
                 -ms-text-size-adjust: 100%;
