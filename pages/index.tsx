@@ -4,7 +4,7 @@ import {
   useURLState,
   createMailToLink,
   createURLParamString,
-  getShortenedUrl,
+  fetchShortenedUrl,
 } from "../utils";
 import { GlobalStyle } from "../utils/globalStyle";
 
@@ -43,7 +43,6 @@ export default function Home() {
           value={to}
           onChange={(e) => setTo(e.target.value)}
         />
-
         <h4>Subject:</h4>
         <input
           type="text"
@@ -51,20 +50,17 @@ export default function Home() {
           value={subject}
           onChange={(e) => setSubject(e.target.value)}
         />
-
         <h4>Body:</h4>
         <textarea
           placeholder="Write your email here…"
           value={body}
           onChange={(e) => setBody(e.target.value)}
         />
-
         <a className="button" href={mailLink}>
           Compose Email
         </a>
-        <input type="text" readOnly value={sendUrl} />
-
-        <button className="button" onClick={() => getShortenedUrl(mailLink)}>
+        <input type="text" readOnly value={sendUrl} />c
+        <button className="button" onClick={() => fetchShortenedUrl(sendUrl)}>
           Create Tiny Url
         </button>
       </main>

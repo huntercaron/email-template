@@ -47,25 +47,18 @@ export function createMailToLink(to, subject, body) {
   return `mailto:${enTo}?subject=${enSubject}&body=${enBody}`;
 }
 
-export async function getShortenedUrl(url) {
-  // fetch no longer needs to be imported from isomorphic-unfetch
-  // const res = await fetch(`https://tinyurl.com/api-create.php?url=${url}`, {
-
-  // const res = await fetch(`https://tinyurl.com/api-create.php?url=${url}`, {
-  //   method: "POST",
-  //   mode: "no-cors",
-  // });
-
+export async function fetchShortenedUrl(url) {
   const res = await fetch(`/api/shorten`, {
     method: "POST",
     body: JSON.stringify({ url }),
   });
+
   const data = await res.json();
 
   if (res.status !== 200) {
-    throw new Error(data.message);
+    console.log(data.message);
   }
 
-  console.log(data);
+  console.log(data.url);
   return data;
 }
