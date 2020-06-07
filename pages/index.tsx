@@ -137,10 +137,14 @@ export default function Home() {
                     setAreLinksValid={setAreLinksValid}
                 >
                     <h3>
-                        <span role="img" aria-label="email">
-                            ✉️
-                        </span>{" "}
-                        Create Email Compose Link
+                        <span
+                            className="envelope"
+                            role="img"
+                            aria-label="email"
+                        >
+                            &#9993;
+                        </span>
+                        &nbsp; Create Email Compose Link
                     </h3>
                 </LinkCreator>
 
