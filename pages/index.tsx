@@ -182,18 +182,18 @@ export default function Home() {
                         Create Link
                     </h3>
                 </LinkCreator>
-            </main>
 
-            <footer className="secondary">
-                currently only supports plain text •{" "}
-                <a
-                    href="https://github.com/huntercaron/email-template"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    github repo
-                </a>
-            </footer>
+                <footer className="secondary">
+                    currently only supports plain text •{" "}
+                    <a
+                        href="https://github.com/huntercaron/email-template"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        github repo
+                    </a>
+                </footer>
+            </main>
 
             <style jsx global>{`
                 .container {
@@ -201,6 +201,16 @@ export default function Home() {
                     --gray: rgba(0, 0, 0, 0.4);
                     --light-gray: rgba(0, 0, 0, 0.12);
                     padding: var(--space);
+                }
+
+                main {
+                    display: flex;
+                    flex-direction: column;
+                    max-width: 400px;
+                }
+
+                footer {
+                    font-size: 12px;
                 }
 
                 .box {
@@ -241,12 +251,6 @@ export default function Home() {
                     text-decoration: underline;
                 }
 
-                main {
-                    display: flex;
-                    flex-direction: column;
-                    max-width: 400px;
-                }
-
                 input,
                 textarea {
                     background-color: transparent;
@@ -266,13 +270,18 @@ export default function Home() {
                     margin-bottom: 0px;
                 }
 
-                footer {
-                    font-size: 12px;
-                }
-
                 @media (min-width: 350px) {
                     .container {
                         --space: 16px;
+                    }
+                }
+
+                @media (min-width: 500px) {
+                    .container {
+                        --space: 20px;
+                    }
+                    textarea {
+                        height: 200px;
                     }
                 }
             `}</style>
