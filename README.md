@@ -10,6 +10,8 @@ All info is stored in the URL and is all client side.
 
 Inspired by [this tweet](https://twitter.com/babybirdrobbins/status/1268563584147054599)
 
+Thanks to [Saba](https://twitter.com/SabaSob) & [Peri](https://twitter.com/perilanglois) for helping with this
+
 ---
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).

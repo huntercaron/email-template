@@ -115,6 +115,13 @@ export default function Home() {
             <Head>
                 <title>Email Template</title>
                 <link rel="icon" href="/favicon.ico" />
+                <meta name="twitter:title" content="Email Template" />
+                <meta
+                    name="twitter:description"
+                    content="Create &amp; share an email template links"
+                />
+                <meta name="twitter:image" content="/thumbnail.png" />
+                <meta name="twitter:card" content="summary_large_image" />
             </Head>
 
             <main>
