@@ -118,9 +118,12 @@ export default function Home() {
                 <meta name="twitter:title" content="Email Template" />
                 <meta
                     name="twitter:description"
-                    content="Create &amp; share an email template links"
+                    content="Create &amp; share email template links"
                 />
-                <meta name="twitter:image" content="/thumbnail.png" />
+                <meta
+                    name="twitter:image"
+                    content="https://email-template.now.sh/thumbnail.png"
+                />
                 <meta name="twitter:card" content="summary_large_image" />
             </Head>
 
