@@ -85,7 +85,6 @@ export default function Home() {
     // building links
     const mailToLink = createMailToLink(to, subject, body)
     const sendUrl = baseURL + "/send" + createURLParamString(to, subject, body)
-    const templateUrl = baseURL + createURLParamString(to, subject, body)
 
     return (
         <div className="container">
@@ -125,8 +124,6 @@ export default function Home() {
                     </span>
                 </div>
 
-                <div className="divider" />
-
                 <LinkCreator
                     url={sendUrl}
                     areLinksValid={areLinksValid}
@@ -136,14 +133,14 @@ export default function Home() {
                         <span role="img" aria-label="email">
                             ✉️
                         </span>{" "}
-                        Create link to email
+                        Create Email Compose Link
                     </h3>
                 </LinkCreator>
+
                 <h4>
-                    Email Link{" "}
-                    <span className="secondary">
-                        A link that auto-composes the email
-                    </span>
+                    Ideal for sharing on social media. When someone clicks the
+                    link, it will open their email client with the template
+                    ready to send.
                 </h4>
 
                 <footer className="secondary">

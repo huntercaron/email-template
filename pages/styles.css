@@ -30,43 +30,6 @@ body {
     font-kerning: normal;
 }
 
-.link-container {
-    margin-bottom: var(--space);
-    text-align: center;
-    height: calc(var(--space) * 2.5);
-
-    display: flex;
-}
-
-.link-container.secondary-container {
-}
-
-.button {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-.button:hover {
-    background-color: rgba(0, 0, 0, 0.033);
-}
-
-.link {
-    flex: 1;
-    height: 100%;
-}
-
-.link input {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    flex: 1;
-    border: 0;
-}
-
 .container {
     --space: 12px;
     --gray: rgba(0, 0, 0, 0.4);
@@ -98,8 +61,10 @@ h3 {
 
 h4 {
     font-size: 12px;
-    letter-spacing: -0.2px;
-    margin: 0 0 4px;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+    margin: 0 0 4px 1px;
+    font-weight: 500;
 }
 
 .divider {
@@ -109,6 +74,7 @@ h4 {
     border-top: 1px solid var(--light-gray);
     margin: var(--space) 0;
 }
+
 
 .secondary {
     color: var(--gray);
@@ -145,6 +111,46 @@ textarea {
     margin-bottom: 0px;
 }
 
+
+.link-container {
+    margin-top: var(--space);
+    margin-bottom: 4px;
+    text-align: center;
+    height: calc(var(--space) * 2.5);
+
+    display: flex;
+}
+
+.link-container.secondary-container {
+    border-color: var(--light-gray);
+}
+
+.button {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: rgba(0, 0, 0, 0.033);
+}
+
+.link {
+    flex: 1;
+    height: 100%;
+}
+
+.link input {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    flex: 1;
+    border: 0;
+}
+
 @media (min-width: 350px) {
     .container {
         --space: 16px;
@@ -159,3 +165,4 @@ textarea {
         height: 260px;
     }
 }
+

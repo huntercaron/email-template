@@ -1,7 +1,6 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { createMailToLink, getParam, createURLParamString } from "../utils"
-import { GlobalStyle } from "../utils/globalStyle"
 
 export default function Send() {
     const [to, setTo] = useState("")
@@ -19,7 +18,7 @@ export default function Send() {
         setBody(newBody)
 
         const newMailLink = createMailToLink(newTo, newSubject, newBody)
-        window.location.href = newMailLink
+        // window.location.href = newMailLink
     }, [])
 
     const mailLink = createMailToLink(to, subject, body)
@@ -27,28 +26,15 @@ export default function Send() {
 
     return (
         <main>
-            <p>Your email client should now open</p>
-            <p>
+            <h4>Your email client should now open</h4>
+            <h4>
                 You can <a href={mailLink}>click here</a> to try again.
                 <br /> (This may not work directly in the twitter browser)
-            </p>
-            <p>
+            </h4>
+            <h4>
                 You can also edit &amp; re-share this template on the{" "}
                 <Link href={`/${urlParamString}`}>edit page</Link>.
-            </p>
-
-            <style jsx>{`
-                main {
-                    padding: 16px;
-                }
-
-                p {
-                    margin-top: 0;
-                    font-size: 15px;
-                }
-            `}</style>
-
-            <GlobalStyle />
+            </h4>
         </main>
     )
 }
