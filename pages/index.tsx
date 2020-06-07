@@ -12,8 +12,13 @@ function LinkCreator(props) {
     const inputEl = useRef<HTMLInputElement>()
     const [shortLink, setShortLink] = useState()
     const [loading, setLoading] = useState(false)
-    const iOS =
-        navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform)
+    const [iOS, setIOS] = useState(false)
+
+    useEffect(() => {
+        setIOS(
+            navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform)
+        )
+    }, [])
 
     useEffect(() => {
         if (!areLinksValid) setShortLink(null)
