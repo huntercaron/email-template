@@ -1,0 +1,161 @@
+*,
+*:before,
+*:after {
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    height: 100%;
+    overflow-x: hidden;
+    line-height: 1.6;
+    font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+        Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+        Helvetica Neue, sans-serif;
+    color: #222;
+    -moz-osx-font-smoothing: grayscale;
+    text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+
+    -moz-font-feature-settings: "kern" 1;
+    -ms-font-feature-settings: "kern" 1;
+    -o-font-feature-settings: "kern" 1;
+    -webkit-font-feature-settings: "kern" 1;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+}
+
+.link-container {
+    margin-bottom: var(--space);
+    text-align: center;
+    height: calc(var(--space) * 2.5);
+
+    display: flex;
+}
+
+.link-container.secondary-container {
+}
+
+.button {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: rgba(0, 0, 0, 0.033);
+}
+
+.link {
+    flex: 1;
+    height: 100%;
+}
+
+.link input {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    flex: 1;
+    border: 0;
+}
+
+.container {
+    --space: 12px;
+    --gray: rgba(0, 0, 0, 0.4);
+    --light-gray: rgba(0, 0, 0, 0.12);
+    padding: var(--space);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+}
+
+footer {
+    font-size: 12px;
+}
+
+.box {
+    border: 1px solid #000;
+    border-radius: 3px;
+}
+
+h3 {
+    font-weight: 500;
+    margin: 0;
+    font-size: 14px;
+    letter-spacing: -0.25px;
+}
+
+h4 {
+    font-size: 12px;
+    letter-spacing: -0.2px;
+    margin: 0 0 4px;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    flex-shrink: 0;
+    border-top: 1px solid var(--light-gray);
+    margin: var(--space) 0;
+}
+
+.secondary {
+    color: var(--gray);
+    font-weight: 400;
+}
+
+.action {
+    color: #000;
+    font-size: 12px;
+    margin-right: 10px;
+    text-decoration: underline;
+}
+
+input,
+textarea {
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid var(--gray);
+    border-radius: 3px;
+    background-color: transparent;
+    font-size: 13px;
+    letter-spacing: -0.1px;
+    padding: 0.5rem;
+    margin-bottom: var(--space);
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI,
+        Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+        Helvetica Neue, sans-serif;
+}
+
+textarea {
+    height: 150px;
+    min-height: 100px;
+    min-width: 100%;
+    margin-bottom: 0px;
+}
+
+@media (min-width: 350px) {
+    .container {
+        --space: 16px;
+    }
+}
+
+@media (min-width: 500px) {
+    .container {
+        --space: 20px;
+    }
+    textarea {
+        height: 260px;
+    }
+}
