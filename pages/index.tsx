@@ -21,6 +21,7 @@ function LinkCreator(props) {
     useEffect(() => {
         if (shortLink && inputEl.current) {
             inputEl.current.focus()
+            inputEl.current.setSelectionRange(0, 9999)
             inputEl.current.select()
         }
     }, [shortLink])
@@ -276,6 +277,7 @@ export default function Home() {
 
                 input,
                 textarea {
+                    width: 100%;
                     background-color: transparent;
                     font-size: 13px;
                     letter-spacing: -0.1px;
