@@ -13,7 +13,11 @@ Inspired by [this tweet](https://twitter.com/babybirdrobbins/status/126856358414
 
 ### Contributing
 
-If anyone would like to contribute, please feel free! I'd appreciate it. Would love some help to add more rich text features like bold & inline links. 
+If anyone would like to contribute, please feel free! I'd appreciate it. 
+
+Additional Features that I'd love to add:
+- Rich text features like bold & inline links
+- A selection of template links on the main page that you can use as a starting point
 
 Thanks to [Saba](https://twitter.com/SabaSob) & [Peri](https://twitter.com/perilanglois) for helping with this.
 
