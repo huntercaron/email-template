@@ -1,5 +1,5 @@
 import Head from "next/head"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import {
     useURLState,
     createMailToLink,
@@ -10,12 +10,20 @@ import { GlobalStyle } from "../utils/globalStyle"
 
 function LinkCreator(props) {
     const { children, url, secondary, areLinksValid, setAreLinksValid } = props
+    const inputEl = useRef<HTMLInputElement>()
     const [shortLink, setShortLink] = useState()
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         if (!areLinksValid) setShortLink(null)
     }, [areLinksValid])
+
+    useEffect(() => {
+        if (shortLink && inputEl.current) {
+            inputEl.current.focus()
+            inputEl.current.select()
+        }
+    }, [shortLink])
 
     function createLink() {
         setLoading(true)
@@ -34,7 +42,12 @@ function LinkCreator(props) {
         <div className="link-container box">
             {shortLink && areLinksValid ? (
                 <div className="link">
-                    <input type="text" readOnly value={shortLink} />
+                    <input
+                        ref={inputEl}
+                        type="text"
+                        readOnly
+                        value={shortLink}
+                    />
                 </div>
             ) : (
                 <div className="button" onClick={createLink}>
