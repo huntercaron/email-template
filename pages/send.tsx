@@ -18,23 +18,32 @@ export default function Send() {
         setBody(newBody)
 
         const newMailLink = createMailToLink(newTo, newSubject, newBody)
-        // window.location.href = newMailLink
+        window.location.href = newMailLink
     }, [])
 
-    const mailLink = createMailToLink(to, subject, body)
+    const mailToLink = createMailToLink(to, subject, body)
     const urlParamString = createURLParamString(to, subject, body)
 
     return (
         <main>
-            <h4>Your email client should now open</h4>
-            <h4>
-                You can <a href={mailLink}>click here</a> to try again.
-                <br /> (This may not work directly in the twitter browser)
+            <h3>Your email client should now open.</h3>
+            <h3>If not, click the button below to try again.</h3>
+
+            <h4 className="secondary helper">
+                (may not work in in-app browsers such as twitter)
             </h4>
-            <h4>
-                You can also edit &amp; re-share this template on the{" "}
-                <Link href={`/${urlParamString}`}>edit page</Link>.
-            </h4>
+
+            <a className="button-link" href={mailToLink}>
+                <div className="button link-container box">
+                    <h3>Open Email Client</h3>
+                </div>
+            </a>
+
+            <Link href={`/${urlParamString}`}>
+                <div className="button link-container secondary-container box">
+                    <h3>📝Copy &amp; Edit this Template</h3>
+                </div>
+            </Link>
         </main>
     )
 }

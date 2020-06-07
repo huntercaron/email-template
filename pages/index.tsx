@@ -12,6 +12,8 @@ function LinkCreator(props) {
     const inputEl = useRef<HTMLInputElement>()
     const [shortLink, setShortLink] = useState()
     const [loading, setLoading] = useState(false)
+    const iOS =
+        navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform)
 
     useEffect(() => {
         if (!areLinksValid) setShortLink(null)
@@ -45,7 +47,7 @@ function LinkCreator(props) {
                     <input
                         ref={inputEl}
                         type="text"
-                        readOnly
+                        readOnly={!iOS}
                         value={shortLink}
                     />
                 </div>
