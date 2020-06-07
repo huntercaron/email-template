@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Head from "next/head"
 import { useEffect, useState } from "react"
 import { createMailToLink, getParam, createURLParamString } from "../utils"
 
@@ -26,6 +27,16 @@ export default function Send() {
 
     return (
         <main>
+            <Head>
+                <title>Send Email Template</title>
+                <link rel="icon" href="/favicon.ico" />
+                <meta name="twitter:title" content="Email Template" />
+                <meta
+                    name="twitter:description"
+                    content="Click to send a templated email"
+                />
+            </Head>
+
             <h3>Your email client should now open.</h3>
             <h3>If not, click the button below to try again.</h3>
 
