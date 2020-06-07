@@ -304,7 +304,7 @@ export default function Home() {
                         --space: 20px;
                     }
                     textarea {
-                        height: 200px;
+                        height: 260px;
                     }
                 }
             `}</style>
